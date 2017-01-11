@@ -10,7 +10,7 @@ h1 {
 }
 
 #messages {
-  max-height: 450px;
+  max-height: 570px;
   overflow-y: auto;
   .avatar {
     margin: 0.5rem;
@@ -19,4 +19,8 @@ h1 {
 
 footer {
   margin-top: 50px;
+}
+
+.hidden{
+  visibility: hidden;
 }
