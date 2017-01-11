@@ -19,7 +19,7 @@ class ChatRoomsController < ApplicationController
   end
 
   def show
-    @chat_room = ChatRoom.includes(:messages).find_by(id: params[:id])
+    @chat_room = ChatRoom.includes(:messages).find_by(random_hash: params[:random_hash])
     @message = Message.new
   end
 
