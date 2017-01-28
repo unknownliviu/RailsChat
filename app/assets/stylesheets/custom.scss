@@ -24,3 +24,17 @@ footer {
 .hidden{
   visibility: hidden;
 }
+
+.card{
+  border: 0px;
+}
+
+.message-current{
+  background-color: #b3d8ff;
+  border-radius: 0.5rem;
+}
+
+.message-remote{
+  background-color: #77ffac;
+  border-radius: 0.5rem;
+}
