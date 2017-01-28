@@ -7,7 +7,7 @@
       <div class="col-md-11">
         <p class="card-text">
           <span class="text-muted"><%= message.user.name %> at <%= message.timestamp %> says</span><br>
-          <%= content_tag(:span, message.body, class: message_color(message, message.user)) %>
+          <%= content_tag(:span, message.body, class: 'message-current') %>
         </p>
       </div>
     </div>

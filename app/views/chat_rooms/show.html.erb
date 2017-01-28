@@ -1,7 +1,7 @@
 <h1><%= @chat_room.title.capitalize %></h1>
 <hr>
 <br>
-<div id="messages" data-chat-room-id="<%= @chat_room.id %>">
+<div id="messages" data-chat-room-id="<%= @chat_room.random_hash %>">
   <%= render @chat_room.messages %>
 </div>
 
