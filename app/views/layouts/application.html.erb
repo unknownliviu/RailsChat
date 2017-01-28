@@ -9,22 +9,30 @@
   </head>
 
   <body>
-    <div id="wrapper">
-      <div id="page-content-wrapper">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-lg-2">
-              <div class="well">
-                <%= link_to 'All rooms', chat_rooms_path %>
-              </div>
-            </div>
-            <div class="col-lg-8">
-              <%= yield %>
-            </div>
+  <div id="wrapper">
+    <%= render 'layouts/sidebar' %>
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <%= link_to 'Toggle Sidebar', '#menu-toggle', id: 'menu-toggle', class: 'btn btn-active' %>
+            <%= link_to("Logout", destroy_user_session_path, method: :delete, class: 'btn btn-active pull-right') if user_signed_in? %>
+            <%= yield %>
           </div>
         </div>
       </div>
-
     </div>
+    <!-- /#page-content-wrapper -->
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Menu Toggle Script -->
+  <script>
+      $("#menu-toggle").click(function(e) {
+          e.preventDefault();
+          $("#wrapper").toggleClass("toggled");
+      });
+  </script>
   </body>
 </html>

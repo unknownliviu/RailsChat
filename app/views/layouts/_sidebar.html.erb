@@ -1,0 +1,12 @@
+<%= cache @chat_rooms do %>
+<div id="sidebar-wrapper">
+  <ul class="sidebar-nav">
+    <li class="sidebar-brand">
+      <%= link_to 'RailsChat', root_path %>
+    </li>
+    <% @chat_rooms.each do |chat_room| %>
+        <li><%= link_to chat_room.title, private_chat_path(random_hash: chat_room.random_hash) %> </li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
