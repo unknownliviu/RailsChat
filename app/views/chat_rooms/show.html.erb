@@ -1,15 +1,7 @@
 <h1><%= @chat_room.title.capitalize %></h1>
 <hr>
-<br>
 <div id="messages" data-chat-room-id="<%= @chat_room.random_hash %>">
   <%= render @chat_room.messages %>
 </div>
 
-<%= form_for @message, url: '#' do |f| %>
-    <div class="form-group">
-      <%= f.text_field :body, class: 'form-control', autocomplete: :off %>
-      <small class="text-muted">From 2 to 1000 characters</small>
-    </div>
-
-    <%= f.submit "Post", class: 'hidden' %>
-<% end %>
+<%= render 'form', message: @message %>

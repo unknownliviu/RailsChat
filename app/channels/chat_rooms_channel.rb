@@ -9,6 +9,13 @@ class ChatRoomsChannel < ApplicationCable::Channel
   end
 
   def send_message(data)
-    current_user.messages.create!(body: data['message'], chat_room: ChatRoom.find_by(random_hash: data['chat_room_id']))
+    current_user.messages.create!(body: data['message'], chat_room: chat_room(data))
   end
+
+  private
+
+  def chat_room(data)
+    ChatRoom.find_by(random_hash: data['chat_room_id'])
+  end
+
 end
