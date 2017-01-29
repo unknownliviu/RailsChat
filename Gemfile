@@ -17,6 +17,8 @@ gem 'coffee-rails', '~> 4.2'
 
 gem 'devise'
 
+gem 'link_thumbnailer'
+
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
 end

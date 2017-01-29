@@ -1,15 +1,17 @@
-<div class="card">
-  <div class="card-block">
-    <div class="row">
-      <div class="col-md-1">
-        <%= gravatar_for message.user %>
-      </div>
-      <div class="col-md-11">
-        <p class="card-text">
-          <span class="text-muted"><%= message.user.name %> at <%= message.timestamp %> says</span><br>
-          <%= content_tag(:span, message.body, class: 'message-current') %>
-        </p>
+<%= cache message do %>
+  <div class="card">
+    <div class="card-block">
+      <div class="row">
+        <div class="col-md-1">
+          <%= gravatar_for message.user %>
+        </div>
+        <div class="col-md-11">
+          <p class="card-text">
+            <span class="text-muted"><%= message.user.name %> at <%= message.timestamp %> says</span><br>
+            <%= content_tag(:span, raw(apply_formatting(message.body)), class: 'message-current') %>
+          </p>
+        </div>
       </div>
     </div>
   </div>
-</div>
+<% end %>

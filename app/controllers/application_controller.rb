@@ -6,6 +6,6 @@ class ApplicationController < ActionController::Base
   private
 
   def load_chat_rooms
-    @chat_rooms = ChatRoom.where(user: current_user)
+    @chat_rooms = ChatRoom.all
   end
 end
