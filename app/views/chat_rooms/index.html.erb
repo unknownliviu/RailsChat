@@ -1,6 +1,17 @@
 <h1><div style="text-align:center">Hello <%= current_user.name %> </div></h1>
 <p class="lead"><%= link_to 'New chat room', new_chat_room_path, class: 'btn btn-primary' %></p>
+<hr>
+<%= form_tag chat_rooms_path, method: :get do %>
+    <div class="form-group">
+      <%= text_field_tag :q, params[:q], class: 'form-control', placeholder: 'Who are you searching for?', autocomplete: :off %>
+    </div>
+<% end %>
 
-<ul>
+<table class="table table-striped">
+  <thead>
+    <th>Rooms</th>
+  </thead>
+  <tbody>
   <%= render @chat_rooms %>
-</ul>
+  </tbody>
+</table>

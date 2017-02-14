@@ -1,7 +1,11 @@
 class ChatRoomsController < ApplicationController
 
   def index
-    @chat_rooms = ChatRoom.all
+    if params[:q]
+      @chat_rooms = ChatRoom.where('title like ?', "%#{params[:q]}%")
+    else
+      @chat_rooms = ChatRoom.all
+    end
   end
 
   def new

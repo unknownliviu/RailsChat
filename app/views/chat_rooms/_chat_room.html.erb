@@ -1,1 +1,1 @@
-<li><%= link_to "Enter #{chat_room.title}", private_chat_path(random_hash: chat_room.random_hash) %></li>
+<tr><td><%= link_to chat_room.title, private_chat_path(random_hash: chat_room.random_hash) %></tr></td>
