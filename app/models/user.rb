@@ -26,6 +26,8 @@ class User < ApplicationRecord
   has_many :chat_rooms, dependent: :destroy
   has_many :messages, dependent: :destroy
 
+  after_create_commit { PrivateChatCreatorJob.perform_later(self) }
+
   def name
     email.split('@')[0].try(:capitalize)
   end

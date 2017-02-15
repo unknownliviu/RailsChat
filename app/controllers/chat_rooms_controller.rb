@@ -2,9 +2,9 @@ class ChatRoomsController < ApplicationController
 
   def index
     if params[:q]
-      @chat_rooms = ChatRoom.where('title like ?', "%#{params[:q]}%")
+      @chat_rooms = ChatRoom.for_user(current_user).where('title like ?', "%#{params[:q]}%")
     else
-      @chat_rooms = ChatRoom.all
+      @chat_rooms = ChatRoom.for_user(current_user)
     end
   end
 

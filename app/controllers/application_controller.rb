@@ -6,6 +6,6 @@ class ApplicationController < ActionController::Base
   private
 
   def load_chat_rooms
-    @sidebar_chat_rooms = ChatRoom.all
+    @sidebar_chat_rooms = ChatRoom.for_user(current_user.id)#.where('user_id = ? or recipient_id = ?', current_user.id, current_user.id).uniq
   end
 end
